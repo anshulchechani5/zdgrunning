@@ -1,0 +1,82 @@
+<mvc:View controllerName="zdgrunning.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:table="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+         <content>
+           <table:Table id="table1" class="CssForTable"  rows="{oFirstTableDataModel>/aFirstTableData}">
+                    <table:extension>
+                        <OverflowToolbar id="oftb" style="Clear">
+                            <ToolbarSpacer id="tbs" />
+                            <Button id="bt1" text="Add" tooltip="Add Table records"  icon="sap-icon://add" press="addrow"  />
+                            <Button id="button2" text="Save" tooltip="Save Table records" press="savedata"/>
+                        </OverflowToolbar>
+                    </table:extension>
+                    <table:columns>
+                       <table:Column id="tc32" width="7rem">
+                            <Label id="p1" text="DG NO" />
+                            <table:template>
+                             <ComboBox id="Lotyp"  value="{oFirstTableDataModel>DGNO}"  >
+                               <items> 
+                                  <core:ListItem id="li10" text="DG 600KVA" key="DG 600KVA"  />
+                                  <core:ListItem id="li11" text="DG 50KVA" key="DG 50KVA"  />
+                                  <core:ListItem id="li12" text="DG 45KVA" key="DG 45KVA"  />
+                               </items>
+                              </ComboBox>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="tc1" width="10rem">
+                            <Label id="p2" text="Date" />
+                            <table:template>
+                               <DatePicker placeholder="Enter Date" id="date" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd" value="{oFirstTableDataModel>Date}" editable="true" />
+                            </table:template>
+                        </table:Column>
+                       <table:Column id="tc8" width="10rem">
+                            <Label id="p4" text="DG Start Time" />
+                            <table:template>
+                            <TimePicker id="recb" displayFormat="HH:mm:ss"  valueFormat="HH:mm:ss"   editable="true" value="{oFirstTableDataModel>dgstarttime}" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="tc13" width="10rem">
+                            <Label id="p11" text="DG End Time" />
+                            <table:template>
+                            <TimePicker id="lno" displayFormat="HH:mm:ss"  valueFormat="HH:mm:ss"    editable="true" 	 value="{oFirstTableDataModel>dgendtime}" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="tc17" width="10rem">
+                            <Label id="p13" text="Total Time" />
+                            <table:template>
+                            <Input id="qltydes" editable="true"  value="{oFirstTableDataModel>dgtotaltime}"/>
+                            </table:template>
+                        </table:Column>
+                         <table:Column id="tc39" width="10rem">
+                            <Label id="p5" text="Diesal Level Start" />
+                            <table:template>
+                                <Input id="rno" editable="true" liveChange="disellevel" submit="disellevel"  value="{oFirstTableDataModel>disellevalstart}"/>
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="tc12" width="10rem">
+                            <Label id="p3" text="Diesal Level End" />
+                            <table:template>
+                                <Input editable="true" liveChange="disellevel" submit="disellevel"   id="beam" value="{oFirstTableDataModel>disellevelend}" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="tc90" width="7rem">
+                            <Label id="p90" text="Total Diesal Con." />
+                            <table:template>
+                                <Input   editable="false"  id="pick" value="{oFirstTableDataModel>totaldiselconsumption}" />
+                            </table:template>
+                        </table:Column>
+                         <table:Column id="tc89" width="7rem">
+                            <Label id="p89" text="Diesal Rec." />
+                            <table:template>
+                                <Input   editable="true"  id="party" value="{oFirstTableDataModel>diselrec}" />
+                            </table:template>
+                        </table:Column>         
+                    </table:columns>
+                </table:Table>
+        </content>
+    </Page>
+</mvc:View>
